@@ -32,14 +32,14 @@ class Convertitore ():
                     
         else:
              self.update_log("Path cartella di destinazione non validi")
-        print(self.to_convert)
 
     def convertAndUpdate(self, file, file_mp3):
             try:
                 self.semaphore.acquire()
                 self.update_log("\n INIZIO CONVERSIONE: " + file.path)
                 audio = AudioSegment.from_file(file.path, format="flac")
-                audio.export(file_mp3, format='mp3', tags = mediainfo(file.path).get('TAG', {}))
+                audio.export(file_mp3, format='mp3', tags = mediainfo(file.path
+                                                                      ).get('TAG', {}))
                 self.tot += 1
                 self.notify_progress()
                 if self.tot == len(self.to_convert):
@@ -57,7 +57,6 @@ class Convertitore ():
 
         self.notify_progress_range(len(self.to_convert))
         for file in self.to_convert:
-            print(file)
             thread = threading.Thread(target= self.convertAndUpdate, args=(file[0], file[1]))
             thread.start()
         

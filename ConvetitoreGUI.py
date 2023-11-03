@@ -71,6 +71,7 @@ class MainPanel(wx.Panel):
         
         self.destinazione_label = wx.StaticText(self, 
                                                 label="Cartella di destinazione:", style = wx.EXPAND)
+
         # Casella di testo per cartella di destinazione
         self.destinazione_text =  wx.TextCtrl(self,value = self.default_path)
                                               

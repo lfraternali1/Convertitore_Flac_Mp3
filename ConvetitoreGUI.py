@@ -10,7 +10,9 @@ class MainFrame(wx.Frame):
     def __init__(self, *args, **kwargs):
         super(MainFrame, self).__init__(None, *args, **kwargs)
         self.Title = 'FLAC to MP3 CONVERTER'
-        self.SetMinSize((1000,600))
+        icon = wx.Icon(".\\icons\\onion.ico", wx.BITMAP_TYPE_ICO)
+        self.SetIcon(icon)
+        self.SetMinSize((1000, 600))
         self.SetMenuBar(MenuBar(self))
         self.Bind(wx.EVT_CLOSE, self.on_quit_click)
         self.main_panel = MainPanel(self)
